@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "MyDFCUstom"
+		},
+		"AzureDataLakeStore1LS_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"AzureDataLakeStore1LS_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://myazuredatalake.azuredatalakestore.net/webhdfs/v1"
+		},
+		"AzureDataLakeStore1LS_properties_typeProperties_servicePrincipalId": {
+			"value": "c2ae1be3-d77a-48d6-af0f-58a60bd11c9d"
+		},
+		"AzureDataLakeStore1LS_properties_typeProperties_tenant": {
+			"value": "3d4703cc-22bf-498f-934c-f4f372de1211"
+		},
+		"AzureDataLakeStore1LS_properties_typeProperties_subscriptionId": {
+			"value": "ebf763a4-4170-4214-9eb9-05f9496bd2b3"
+		},
+		"AzureDataLakeStore1LS_properties_typeProperties_resourceGroupName": {
+			"value": "BigDataResourceGroup"
+		}
+	}
+}
