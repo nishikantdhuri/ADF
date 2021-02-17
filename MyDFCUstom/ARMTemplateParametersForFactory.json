@@ -11,6 +11,9 @@
 		"AzureDatabricks1_accessToken": {
 			"value": ""
 		},
+		"AzureFunction1_functionKey": {
+			"value": ""
+		},
 		"AzureDataLakeStore1LS_properties_typeProperties_dataLakeStoreUri": {
 			"value": "https://myazuredatalake.azuredatalakestore.net/webhdfs/v1"
 		},
@@ -25,6 +28,9 @@
 		},
 		"AzureDataLakeStore1LS_properties_typeProperties_resourceGroupName": {
 			"value": "BigDataResourceGroup"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"value": "https://mypythonfunctiondemo.azurewebsites.net"
 		}
 	}
 }

@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
 		},
+		"AzureFunction1_functionKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'functionKey' of 'AzureFunction1'"
+		},
 		"AzureDataLakeStore1LS_properties_typeProperties_dataLakeStoreUri": {
 			"type": "string",
 			"defaultValue": "https://myazuredatalake.azuredatalakestore.net/webhdfs/v1"
@@ -34,6 +38,10 @@
 		"AzureDataLakeStore1LS_properties_typeProperties_resourceGroupName": {
 			"type": "string",
 			"defaultValue": "BigDataResourceGroup"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"type": "string",
+			"defaultValue": "https://mypythonfunctiondemo.azurewebsites.net"
 		}
 	},
 	"variables": {
@@ -82,6 +90,23 @@
 						"value": "[parameters('AzureDatabricks1_accessToken')]"
 					},
 					"existingClusterId": "0124-100506-wends81"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureFunction1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureFunction",
+				"typeProperties": {
+					"functionAppUrl": "[parameters('AzureFunction1_properties_typeProperties_functionAppUrl')]",
+					"functionKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureFunction1_functionKey')]"
+					}
 				}
 			},
 			"dependsOn": []
@@ -325,6 +350,35 @@
 								"empid": "1"
 							}
 						}
+					},
+					{
+						"name": "Azure Function1",
+						"type": "AzureFunctionActivity",
+						"dependsOn": [
+							{
+								"activity": "Notebook1",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"functionName": "MyPythonFunctionDemo",
+							"method": "GET",
+							"headers": {}
+						},
+						"linkedServiceName": {
+							"referenceName": "AzureFunction1",
+							"type": "LinkedServiceReference"
+						}
 					}
 				],
 				"annotations": [],
@@ -333,6 +387,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_9qx')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricks1')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureFunction1')]",
 				"[concat(variables('factoryId'), '/datasets/DestinationDataset_9qx')]"
 			]
 		}

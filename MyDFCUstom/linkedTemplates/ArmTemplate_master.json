@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
 		},
+		"AzureFunction1_functionKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'functionKey' of 'AzureFunction1'"
+		},
 		"AzureDataLakeStore1LS_properties_typeProperties_dataLakeStoreUri": {
 			"type": "string",
 			"defaultValue": "https://myazuredatalake.azuredatalakestore.net/webhdfs/v1"
@@ -34,6 +38,10 @@
 		"AzureDataLakeStore1LS_properties_typeProperties_resourceGroupName": {
 			"type": "string",
 			"defaultValue": "BigDataResourceGroup"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"type": "string",
+			"defaultValue": "https://mypythonfunctiondemo.azurewebsites.net"
 		},
 		"containerUri": {
 			"type": "string",
@@ -68,6 +76,9 @@
 					"AzureDatabricks1_accessToken": {
 						"value": "[parameters('AzureDatabricks1_accessToken')]"
 					},
+					"AzureFunction1_functionKey": {
+						"value": "[parameters('AzureFunction1_functionKey')]"
+					},
 					"AzureDataLakeStore1LS_properties_typeProperties_dataLakeStoreUri": {
 						"value": "[parameters('AzureDataLakeStore1LS_properties_typeProperties_dataLakeStoreUri')]"
 					},
@@ -82,6 +93,9 @@
 					},
 					"AzureDataLakeStore1LS_properties_typeProperties_resourceGroupName": {
 						"value": "[parameters('AzureDataLakeStore1LS_properties_typeProperties_resourceGroupName')]"
+					},
+					"AzureFunction1_properties_typeProperties_functionAppUrl": {
+						"value": "[parameters('AzureFunction1_properties_typeProperties_functionAppUrl')]"
 					}
 				}
 			},
