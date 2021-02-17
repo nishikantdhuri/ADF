@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "MyDFCUstom"
+		},
+		"AzureDataLakeStore1LS_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureDataLakeStore1LS'"
+		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
+		"AzureDataLakeStore1LS_properties_typeProperties_dataLakeStoreUri": {
+			"type": "string",
+			"defaultValue": "https://myazuredatalake.azuredatalakestore.net/webhdfs/v1"
+		},
+		"AzureDataLakeStore1LS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "c2ae1be3-d77a-48d6-af0f-58a60bd11c9d"
+		},
+		"AzureDataLakeStore1LS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "3d4703cc-22bf-498f-934c-f4f372de1211"
+		},
+		"AzureDataLakeStore1LS_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "ebf763a4-4170-4214-9eb9-05f9496bd2b3"
+		},
+		"AzureDataLakeStore1LS_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "BigDataResourceGroup"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "MyDFCUstom_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStore1LS_servicePrincipalKey": {
+						"value": "[parameters('AzureDataLakeStore1LS_servicePrincipalKey')]"
+					},
+					"AzureDatabricks1_accessToken": {
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
+					"AzureDataLakeStore1LS_properties_typeProperties_dataLakeStoreUri": {
+						"value": "[parameters('AzureDataLakeStore1LS_properties_typeProperties_dataLakeStoreUri')]"
+					},
+					"AzureDataLakeStore1LS_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureDataLakeStore1LS_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureDataLakeStore1LS_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureDataLakeStore1LS_properties_typeProperties_tenant')]"
+					},
+					"AzureDataLakeStore1LS_properties_typeProperties_subscriptionId": {
+						"value": "[parameters('AzureDataLakeStore1LS_properties_typeProperties_subscriptionId')]"
+					},
+					"AzureDataLakeStore1LS_properties_typeProperties_resourceGroupName": {
+						"value": "[parameters('AzureDataLakeStore1LS_properties_typeProperties_resourceGroupName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
