@@ -160,7 +160,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users",
+					"notebookPath": "/Users/nishikantdhuri@hotmail.com/child",
 					"baseParameters": {
 						"empid": {
 							"value": "@pipeline().DataFactory",
