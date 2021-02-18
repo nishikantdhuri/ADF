@@ -141,8 +141,8 @@
 				}
 			},
 			{
-				"name": "Notebook1",
-				"type": "DatabricksNotebook",
+				"name": "Copy data2",
+				"type": "Copy",
 				"dependsOn": [
 					{
 						"activity": "ForEach1",
@@ -160,80 +160,28 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/nishikantdhuri@hotmail.com/child",
-					"baseParameters": {
-						"empid": {
-							"value": "@pipeline().DataFactory",
-							"type": "Expression"
-						}
-					}
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureDatabricks1",
-					"type": "LinkedServiceReference",
-					"parameters": {
-						"empid": "1"
-					}
-				}
-			},
-			{
-				"name": "Azure Function1",
-				"type": "AzureFunctionActivity",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"functionName": "MyPythonFunctionDemo",
-					"method": "GET"
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureFunction1",
-					"type": "LinkedServiceReference"
-				}
-			},
-			{
-				"name": "Copy data2",
-				"type": "Copy",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
 						"queryTimeout": "02:00:00",
-						"isolationLevel": "ReadCommitted",
 						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
 							"type": "AzureDataLakeStoreWriteSettings",
-							"maxConcurrentConnections": 4,
-							"copyBehavior": "PreserveHierarchy"
+							"maxConcurrentConnections": 4
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"maxRowsPerFile": 100,
-							"fileNamePrefix": "risk",
+							"fileNamePrefix": "risk1",
 							"quoteAllText": true,
 							"fileExtension": ".txt"
 						}
 					},
 					"enableStaging": false,
 					"parallelCopies": 4,
-					"enableSkipIncompatibleRow": true,
+					"enableSkipIncompatibleRow": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"typeConversion": true,
