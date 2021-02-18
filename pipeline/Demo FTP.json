@@ -176,7 +176,7 @@
 							"maxRowsPerFile": 100,
 							"fileNamePrefix": "risk.nexus",
 							"quoteAllText": true,
-							"fileExtension": ".parquet"
+							"fileExtension": ""
 						}
 					},
 					"enableStaging": false,
