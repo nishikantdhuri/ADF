@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": "integrated security=False;data source=LAPTOP-26CR59NM\\SQLEXPRESS;initial catalog=AdventureWorks;user id=foo",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1MGM4YTA1Ny1lNDZlLTRlYjMtOGFjYy1hYTkyYzFlMDIzZmYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"connectionString": "integrated security=False;data source=LAPTOP-26CR59NM\\SQLEXPRESS;initial catalog=ORG;user id=foo",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzNmQ5MzU0My04MjViLTQzN2EtYTM0YS03NDBhNTFmY2MzOTAiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntime1",
