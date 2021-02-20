@@ -77,7 +77,12 @@
 						"referenceName": "SourceDataset_9qx",
 						"type": "DatasetReference"
 					},
-					"fieldList": [],
+					"fieldList": [
+						{
+							"value": "@pipeline().Pipeline",
+							"type": "Expression"
+						}
+					],
 					"storeSettings": {
 						"type": "AzureDataLakeStoreReadSettings",
 						"enablePartitionDiscovery": false
