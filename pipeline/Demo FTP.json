@@ -327,6 +327,22 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Copy data2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 300
+				}
 			}
 		],
 		"annotations": [],
